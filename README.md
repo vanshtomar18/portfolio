@@ -32,8 +32,8 @@ This is my personal developer portfolio website. It highlights my skills, educat
 ---
 
 ## 📷 Project Screenshot
-
-
+![Project Screenshot]
+(Screenshot%202025-08-02%20140137.png)
 
 
 ---
