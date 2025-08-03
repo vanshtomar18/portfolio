@@ -573,66 +573,87 @@ span{
     transform: translateX(-50%);
   }
 }
-@media(max-width:1200px){
-    html{
-        font-size: 54%;
-    }
-}
-@media(max-width:991px){
-    .header{
-        padding: 2rem 4%;
-    }
-    section{
-        padding: 10rem 4% 2rem;
-    }
-    .home{
-        padding:0 4%;
-    }
-    .footer{
-        padding: 2rem 4%;
-    }
-}
-@media (max-width:768px){
-    #menu-icon{
-        display: block;
-    }
-    .navbar{
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        padding: 1rem 3%;
-        background: var(--bg-color);
-        border-top: .1rem solid rgba(0, 0, 0, .2);
-        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
-        display: none;
 
-    }
-    .navbar.active{
-        display: block;
-    }
-    .navbar a{
-        display: block;
-        font-size: 2rem;
-        margin: 3rem 0;
-    }
-    .home{
-        flex-direction: column;
-    }
-    .home-content h3{
-        font-size: 2.6rem;
-    }
-    .home-content h1{
-        font-size: 5rem;
-    }
-    .home-img img{
-        width: 48vw;
-        height: 50vh;
-        
-    }
-    .about{
-        flex-direction: column-reverse;
-    }
-    
-    
+.typing-text {
+  color: #00f0ff; 
+  font-weight: 800;
+  white-space: nowrap;
+  font-size: 5rem;
+}
+
+.text-animate {
+  display: inline-block;
+  overflow: hidden;
+}
+
+
+@media (max-width: 768px) {
+  #menu-icon {
+    display: block;
+  }
+
+  .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 1rem 4%;
+    background: var(--bg-color);
+    border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    display: none;
+  }
+
+  .navbar.active {
+    display: block;
+  }
+
+  .navbar a {
+    display: block;
+    font-size: 2rem;
+    margin: 3rem 0;
+    text-align: center;
+  }
+
+  .home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .home-content {
+    order: 2;
+  }
+
+  .home-content h3 {
+    font-size: 2.6rem;
+  }
+
+  .home-content h1 {
+    font-size: 3.8rem;
+  }
+
+  .typing-text {
+    font-size: 2.7rem;
+  }
+
+  .home-img {
+    order: 1;
+    margin-bottom: 2rem;
+  }
+
+  .home-img img {
+    width: 60vw;
+    max-width: 280px;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .about {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
 }
