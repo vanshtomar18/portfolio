@@ -71,10 +71,10 @@ section{
 }
 .home-img img {
     width: 28vw;
-    height: 70vh;
+    height: 66vh;
     object-fit: cover;
     border: none;
-    border-radius: 70%; 
+    border-radius: 50%; 
     transition: filter 0.5s ease; 
 }
 
