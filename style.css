@@ -406,7 +406,7 @@ span{
     width: 90%;
 }
 .skills-column:nth-child(1) .skills-content .progress:nth-child(2) .bar span{
-    width: 80%;
+    width: 85%;
 }
 .skills-column:nth-child(1) .skills-content .progress:nth-child(3) .bar span{
     width: 60%;
@@ -559,11 +559,13 @@ span{
     height: 320px;
     object-fit: cover;
     border-radius: 8px;
-    
+    margin-bottom: 4rem;
 }
 .proj-name{
     font-size: 4.5rem;
-    color: rgb(6, 236, 136);
+    color: white;
+    font-weight: 1000;
+    /* margin-top: 2rem; */
 }
 @keyframes animate{
   0%{
@@ -656,4 +658,32 @@ span{
     flex-direction: column-reverse;
     text-align: center;
   }
+}
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.proj-name {
+  margin: 0;
+}
+
+.project-link {
+ display: inline-block;
+    padding: 1rem 2.8rem;
+    background: var(--main-color);
+    border-radius: 4rem;
+    box-shadow: 0 0 1rem var(--main-color);
+    font-size: 1.6rem;
+    color: var(--second-bg-color);
+    letter-spacing: .1rem;
+    font-weight: 600;
+    transition: .5s ease;
+
+}
+
+.project-link:hover {
+  box-shadow: none;
 }
