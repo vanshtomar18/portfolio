@@ -79,7 +79,7 @@ section{
 }
 
 .home-img img:hover {
-    filter: brightness(0.5) saturate(0.5) opacity(0.2); 
+    filter: brightness(1.9) saturate(1) opacity(0.9); 
 }
 
 .home-content h3{
@@ -120,7 +120,7 @@ span{
   width: 100%;
   background-color: var(--bg-color); 
   border-left: 2px solid var(--main-color);
-  animation: typing 5s steps(500) infinite;
+  animation: typing 8s steps(1000) infinite;
 }
 
 @keyframes typing {
