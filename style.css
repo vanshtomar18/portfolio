@@ -23,6 +23,26 @@ html{
 body{
     background: var(--bg-color);
     color: var(--text-color);
+    position: relative;
+    overflow: hidden;
+    
+}
+
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+    background: transparent;
+    display: block;
+}
+
+body > *:not(#bg-canvas) {
+    position: relative;
+    z-index: 1;
 }
 section{
     min-height: 100vh;
@@ -34,12 +54,14 @@ section{
     left: 0;
     width: 100%;
     padding: 2rem 9%;
-    background: var(--bg-color);
+    background: rgba(31,36,45,0.95); 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 100;
+    z-index: 100000; 
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.08);
 }
+
 .logo{
     font-size: 2.5rem;
     color: var(--text-color);
@@ -184,7 +206,8 @@ span{
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    background: var(--second-bg-color);
+     
+    box-shadow: 0 4px 32px 0 rgba(0,0,0,0.08);
 }
 .about-img {
   display: flex;
@@ -339,8 +362,7 @@ span{
 .skills{
     min-height: auto;
     padding: 7.5rem;
-    
-    background: var(--second-bg-color);
+    box-shadow: 0 4px 32px 0 rgba(0,0,0,0.08);
 }
 .skills .skills-row{
     display: flex;
@@ -361,7 +383,7 @@ span{
     padding: .1rem 1.5rem;
     
     overflow: hidden;
-    z-index: 0;
+  
 }
 .skills-box .skills-content::before{
     content: '';
@@ -565,7 +587,7 @@ span{
     font-size: 4.5rem;
     color: white;
     font-weight: 1000;
-    /* margin-top: 2rem; */
+    
 }
 @keyframes animate{
   0%{
@@ -589,76 +611,216 @@ span{
 }
 
 
-@media (max-width: 768px) {
-  #menu-icon {
-    display: block;
-  }
 
-  .navbar {
-    position: absolute;
-    top: 100%;
-    left: 0;
+.certificates {
+    min-height: auto;
+    padding: 7rem 7% 2rem;
+    
+}
+
+.certificate-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 6rem;
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.certificate-card {
+    position: relative;
     width: 100%;
-    padding: 1rem 4%;
+    height: 400px;
+    perspective: 1000px;
+}
+
+.certificate-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.75, 0, 0.85, 1);
+}
+
+.certificate-card:hover .certificate-content {
+    transform: rotateY(180deg);
+}
+
+.certificate-front,
+.certificate-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 0 1rem var(--main-color);
+}
+
+.certificate-front {
     background: var(--bg-color);
-    border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-    display: none;
-  }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
-  .navbar.active {
-    display: block;
-  }
+.certificate-front img {
+    width: 90%;
+    height: 80%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
 
-  .navbar a {
-    display: block;
+.certificate-front h3 {
     font-size: 2rem;
-    margin: 3rem 0;
-    text-align: center;
-  }
+    color: var(--text-color);
+}
 
-  .home {
+.certificate-back {
+    background: var(--bg-color);
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-  }
-
-  .home-content {
-    order: 2;
-  }
-
-  .home-content h3 {
-    font-size: 2.6rem;
-  }
-
-  .home-content h1 {
-    font-size: 3.8rem;
-  }
-
-  .typing-text {
-    font-size: 2.7rem;
-  }
-
-  .home-img {
-    order: 1;
-    margin-bottom: 2rem;
-  }
-
-  .home-img img {
-    width: 60vw;
-    max-width: 280px;
-    height: auto;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-
-  .about {
-    flex-direction: column-reverse;
-    text-align: center;
-  }
+    transform: rotateY(180deg);
 }
+
+.certificate-back h3 {
+    font-size: 2.4rem;
+    color: var(--main-color);
+    margin-bottom: 1.5rem;
+}
+
+.certificate-back p {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
+
+.certificate-card:hover {
+    transform: translateY(-1rem);
+}
+
+
+@media (max-width: 768px) {
+    .certificate-container {
+        grid-template-columns: 1fr; 
+        gap: 2rem;
+        padding: 2rem 1rem;
+    }
+
+    .certificate-card {
+        height: 350px;
+    }
+
+    .certificate-back h3 {
+        font-size: 2rem;
+    }
+
+    .certificate-back p {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 768px) {
+   
+    #menu-icon {
+        display: none !important;
+    }
+
+    
+    .navbar {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 1rem;
+        justify-content: space-around;
+        background: rgba(31,36,45,0.95);
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    }
+
+    .navbar a {
+        font-size: 1.4rem;
+        margin: 0;
+    }
+
+    
+    .project-link {
+        font-size: 1.4rem;
+        padding: 0.5rem 1rem;
+    }
+
+    
+    body {
+        padding-bottom: 6rem;
+    }
+
+   
+    .home {
+        flex-direction: column-reverse;
+        padding-top: 10rem;
+        text-align: center;
+    }
+
+    .home-content {
+        padding: 2rem 0;
+    }
+
+    .home-content h1 {
+        font-size: 4.2rem;
+    }
+
+    .home-content h3 {
+        font-size: 2.5rem;
+    }
+
+    .home-content p {
+        font-size: 1.5rem;
+        margin: 2rem 0;
+    }
+
+    .home-img img {
+        width: 70vw;
+        height: auto;
+        margin-top: 4rem;
+    }
+
+   
+    .social-media a {
+        width: 3.5rem;
+        height: 3.5rem;
+        font-size: 1.8rem;
+        margin: 2rem 1rem;
+    }
+
+   
+    .btn {
+        padding: 0.8rem 2.2rem;
+        font-size: 1.4rem;
+    }
+
+    .typing-text {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 450px) {
+    .home-content h1 {
+        font-size: 3.5rem;
+    }
+
+    .home-img img {
+        width: 90vw;
+    }
+}
+
 .project-header {
   display: flex;
   justify-content: space-between;
