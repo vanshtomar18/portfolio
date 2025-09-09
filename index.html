@@ -9,20 +9,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- 3D background canvas -->
+    <canvas id="bg-canvas"></canvas>
     <header class="header">
-        <a href="#" class="logo">Portfolio</a>
-        <i class="bx bx-menu" id="menu-icon"></i>
-        <nav class="navbar">
-            <a href="#home" class="active">Home</a>
-            <a href="#about">About</a>
-            <a href="#education">Education</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-
-
-        </nav>
-    </header>
+    <a href="#" class="logo">Portfolio</a>
+    <i class="bx bx-menu" id="menu-icon"></i>
+    <nav class="navbar">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
 
     <section class="home" id="home">
         <div class="home-content">
@@ -249,43 +250,112 @@
         
 </section>
 
+<section class="certificates" id="certificates">
+    <h2 class="heading">My <span>Certificates</span></h2>
+    <div class="certificate-container">
+       
+        <div class="certificate-card">
+            <div class="certificate-content">
+                <div class="certificate-front">
+                    <img src="/portfolio/Screenshot 2025-09-09 023240.png" alt="Certificate">
+                    <h3>Python Programming</h3>
+                </div>
+                <div class="certificate-back">
+                    <h3>Python Programming</h3>
+                    <p>Completed comprehensive Python programming course covering data structures, algorithms.</p>
+                    <a href="/portfolio/Screenshot 2025-09-09 023240.png" class="btn">View Certificate</a>
+                </div>
+            </div>
+        </div>
+
+       
+        <div class="certificate-card">
+            <div class="certificate-content">
+                <div class="certificate-front">
+                    <img src="/portfolio/WhatsApp Image 2025-09-09 at 02.25.06_c2b10229.jpg" alt="Certificate">
+                    <h3>GDG Campus Solution Challenge</h3>
+                </div>
+                <div class="certificate-back">
+                    <h3>GDG Campus Solution Challenge</h3>
+                    <p>Participated in the GDG Campus Solution Challenge, focusing on innovative solutions using Google technologies.</p>
+                    <a href="/portfolio/WhatsApp Image 2025-09-09 at 02.25.06_c2b10229.jpg" class="btn">View Certificate</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="certificate-card">
+            <div class="certificate-content">
+                <div class="certificate-front">
+                    <img src="/portfolio/Screenshot 2025-09-09 023514.png" alt="Certificate">
+                    <h3>Meta Python Certificate</h3>
+                </div>
+                <div class="certificate-back">
+                    <h3>Meta Python Certificate</h3>
+                    <p>Completed the Meta Python Certificate program, gaining basic knowledge of Python programming and its applications.</p>
+                    <a href="/portfolio/Screenshot 2025-09-09 023514.png" class="btn">View Certificate</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="certificate-card">
+            <div class="certificate-content">
+                <div class="certificate-front">
+                    <img src="/portfolio/WhatsApp Image 2025-09-09 at 02.25.06_4cac5b39.jpg" alt="Certificate">
+                    <h3>Blank Coding Certificate</h3>
+                </div>
+                <div class="certificate-back">
+                    <h3>Blank Coding Certificate</h3>
+                    <p>Participated in the Blank Coding Challenge, focusing on different algorithms organized by College Society.</p>
+                    <a href="/portfolio/WhatsApp Image 2025-09-09 at 02.25.06_4cac5b39.jpg" class="btn">View Certificate</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
     <section class="contact" id="contact">
-        <h2 class="heading">Contact <span>Me!</span></h2>
-        <form action="#">
+    <h2 class="heading">Contact <span>Me!</span></h2>
+    <form action="https://formsubmit.co/tomarvansh90@gmail.com" method="POST">
         <div class="input-box">
             <div class="input-field">
-                <input type="text" placeholder="Full Name" required>
+                <input type="text" name="name" placeholder="Full Name" required>
                 <span class="focus"></span>
             </div>
             <div class="input-field">
-                <input type="text" placeholder="Email Address" required>
+                <input type="email" name="email" placeholder="Email Address" required>
                 <span class="focus"></span>
             </div>
         </div>
 
         <div class="input-box">
             <div class="input-field">
-                <input type="number" placeholder="Mobile Number" required>
+                <input type="tel" name="phone" placeholder="Mobile Number" required>
                 <span class="focus"></span>
             </div>
             <div class="input-field">
-                <input type="text" placeholder="Email Subject" required>
+                <input type="text" name="subject" placeholder="Email Subject" required>
                 <span class="focus"></span>
             </div>
         </div>
 
         <div class="textarea-field">
-            <textarea name="" id="" cols="20" rows="7" placeholder="Your Message" required></textarea>
+            <textarea name="message" cols="20" rows="7" placeholder="Your Message" required></textarea>
             <span class="focus"></span>
         </div>
+
+        <!-- Hidden inputs for FormSubmit configuration -->
+        <input type="hidden" name="_next" value="http://127.0.0.1:5500/portfolio/thanks.html">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+
         <div class="btn-box btns">
             <button type="submit" class="btn">
                 Submit
             </button>
         </div>
     </form>
-    </section>
+</section>
     <footer class="footer">
         <div class="footer-text">
             <p>Copyright &copy; 2024 by Vansh Tomar | All Rights Reserved.</p>
@@ -298,7 +368,6 @@
 
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="index.js"></script>
+    <script src="bg3d.js"></script>
 </body>
 </html>
-
-
